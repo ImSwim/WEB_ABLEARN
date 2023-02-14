@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event 넣기</title>
+    <style>
+        #box{background-color: rgb(233, 204, 204);
+            width: 100px; height:100px; 
+            border:1px solid #000; position: relative;}
+        #color{background-color: rgb(145, 95, 95);}
+        #circle{width:50px; ; height:50px; 
+            border:1px solid #000; border-radius:50%; position:absolute;}
+    </style>
+</head>
+<body>
+    <div id="box" class="box bg-red" onclick="test()">
+        <div id="circle"></div></div>
+    <button id="btn1" onclick="test1()">확인</button>
+    <button id="btn2">확인2</button>
+    <ul id="color">
+        <li>M1</li>
+        <li>M2</li>
+        <li>M3</li>
+    </ul>
+    <input type="text" id="txt" />
+    <script>
+        function test(){
+            alert('test')
+        }
+        // click, dbclick
+        // focus, focusin
+        // blur, focuout
+        // 이벤트는 아이디를 이용해 부여하는 것이 좋음?
+        const el2 = document.getElementById("btn2");
+        el2.addEventListener('click',()=>{
+            alert('HI');
+        })
+
+        const input = document.getElementById("txt");
+        input.addEventListener("focus",()=>{
+            input.style.backgroundColor = 'rgba(255,0,0,2)';
+        }) 
+        input.addEventListener("blur",()=>{
+            input.style.backgroundColor = 'rgba(0,0,0,0)';
+        })
+        
+        const box = document.getElementById("box");
+        const circle = document.getElementById("circle");
+        box.addEventListener("mousemove",(event)=>{
+        // event -> 마우스의 움직임 좌표값을 이벤트로 받아옴
+            circle.style.top = `${event.clientY-30}px`;
+            circle.style.left = `${event.clientX-30}px`;
+            box.style.overflow = 'hidden';
+        })  
+    </script>
+</body>
+</html>

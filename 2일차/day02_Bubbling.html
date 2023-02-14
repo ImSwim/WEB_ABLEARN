@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{background-color: aquamarine; width: 300px; height: 200px;}
+        #list{background-color: blue;width: 200px; height: 150px;}
+        #color{background-color: brown;}
+        #list li{background-color: blanchedalmond; list-style: none;}
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul id="list">
+            <li id="color">M1</li>
+            <li>M2</li>
+            <li>M3</li>
+            <li>M4</li>
+        </ul>
+    </div>
+    <script>
+        const box = document.getElementById("box");
+        const list = document.getElementById("list");
+        const color =  document.getElementById("color");
+        
+        box.addEventListener("click",()=>{
+            console.log('1. div');
+        })
+        list.addEventListener("click",()=>{
+            console.log('2. ul');
+        })
+        color.addEventListener("click",(event)=>{
+            event.stopPropagation();
+            console.log('3. li');
+        })
+    </script>
+</body>
+</html>

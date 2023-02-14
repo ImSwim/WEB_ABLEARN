@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers = Array(10).fill().map((item, index)=>index+1);
+        // map() 배열 내의 요소를 돌면서 함수의 결과값을 모아 새로운 배열로 반환
+        const random=[];
+        while(numbers.length>0){
+            const num = Math.floor(Math.random()*numbers.length);
+            const newArr = numbers.splice(num,1);
+            const value = newArr[0];
+            random.push(value);
+        }
+        console.log(random);
+    //----------------------------------
+    </script>
+    
+</body>
+</html>
